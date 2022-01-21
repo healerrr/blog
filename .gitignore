@@ -5,3 +5,5 @@ dist-ssr
 *.local
 yarn.lock
 package-lock.json
+Dockerfile
+.dockerignore

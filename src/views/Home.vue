@@ -36,7 +36,7 @@
           >
             github
           </a>
-          <a
+          <!-- <a
             target="_blank"
             rel="noopener noreferrer"
             class="link"
@@ -67,7 +67,7 @@
             href="https://www.jianshu.com/u/91717b553bfd"
           >
             简书
-          </a>
+          </a> -->
         </div>
         <div class="introduce"> 时光正好，未来可期，加油 ！ </div>
       </div>
