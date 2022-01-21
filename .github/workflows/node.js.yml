@@ -1,30 +1,53 @@
-name: Docker Image CI # Actions名称
-on: [push] # 执行时机
+name: Build app and deploy to aliyun
+on:
+  #监听push操作
+  push:
+    branches:
+      # master分支，你也可以改成其他分支
+      - master
 jobs:
+  build:
+    # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+    runs-on: ubuntu-latest
+    steps:
+      # 获取源码
+      - name: Checkout
+        # 使用action库  actions/checkout获取源码
+        uses: actions/checkout@master
+      # 安装依赖
+      - name: npm install
+        run: npm install
+      # 打包
+      - name: npm build
+        run: npm run build
 
-# 这里我使用的是yarn，想用npm的同学将yarn命令修改为npm命令即可
-build:
-runs-on: ubuntu-latest
-steps:
-- name: checkout
-- uses: actions/checkout@master
-- name: install
-run: yarn
-# 打包
-- name: build project
-run: yarn run build
-
-# 打包镜像推送到阿里云容器镜像服务
-- name: Build the Docker image
-run: |
-docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
-docker build -t blog:latest .
-docker tag blog registry.cn-hangzhou.aliyuncs.com/healerrr/blog:latest
-docker push registry.cn-hangzhou.aliyuncs.com/healerrr/blog:latest # 推送
-- name: ssh docker login # 使用appleboy/ssh-action@master登录服务器执行拉取镜像脚本，服务器ip、用户名、密码配置方式同容器镜像服务配置方式一样
-uses: appleboy/ssh-action@master
-with:
-        host: ${{ secrets.SSH_HOST }} 
-username: ${{ secrets.SSH_USERNAME }}
-password: ${{ secrets.SSH_PASSWORD }}
-script: cd ~ && sh blog-deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      # 打包镜像推送到阿里云容器镜像服务
+      - name: Build the Docker image  
+        run: |
+        docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+        docker build -t blog:latest .
+        docker tag blog registry.cn-hangzhou.aliyuncs.com/healerrr/blog:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/healerrr/blog:latest # 推送
+        - name: ssh docker login # 使用appleboy/ssh-action@master登录服务器执行拉取镜像脚本，服务器ip、用户名、密码配置方式同容器镜像服务配置方式一样
+        uses: appleboy/ssh-action@master
+        with:
+                host: ${{ secrets.SSH_HOST }} 
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: cd ~ && sh blog-deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      # # 部署到阿里云
+      # - name: Deploy to Aliyun
+      #   uses: easingthemes/ssh-deploy@v2.1.1
+      #   env:
+      #     # 私钥
+      #     SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      #     # scp参数
+      #     ARGS: "-avzr --delete"
+      #     # 源目录，编译后生成的文件目录
+      #     SOURCE: "./dist"
+      #     # 服务器ip：换成你的服务器IP
+      #     REMOTE_HOST: "47.106.141.235"
+      #     # 用户
+      #     REMOTE_USER: "root"
+      #     # 目标地址 你在服务器上部署代码的地方
+      #     TARGET: "/root/web/vue-drag-demo"
