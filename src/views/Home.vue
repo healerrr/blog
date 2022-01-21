@@ -69,7 +69,7 @@
             简书
           </a> -->
         </div>
-        <div class="introduce"> 时光正好，未来可期，加油 ！ </div>
+        <!-- <div class="introduce"> 时光正好，未来可期，加油 ！ </div> -->
       </div>
     </div>
   </div>
