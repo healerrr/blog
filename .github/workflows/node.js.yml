@@ -7,7 +7,7 @@ build:
 runs-on: ubuntu-latest
 steps:
 - name: checkout
-uses: actions/checkout@master
+- uses: actions/checkout@master
 # 安装依赖
 - name: install
 run: yarn
