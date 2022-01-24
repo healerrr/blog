@@ -1,7 +1,7 @@
 <template>
   <div class="loading">
     <img
-      src="../assets/loading.svg"
+      src="@/assets/loading.svg"
       alt="拼命加载中..."
     >
   </div>

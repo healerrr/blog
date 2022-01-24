@@ -10,7 +10,7 @@
             <router-link to="/">
               <img
                 class="logo"
-                src="../assets/logo.jpg"
+                src="@/assets/logo.jpg"
                 alt="BiaoChenXuYing"
               >
             </router-link>
@@ -46,7 +46,7 @@
                 <img
                   v-if="!userInfo.avatar"
                   class="user-img"
-                  src="../assets/user.png"
+                  src="@/assets/user.png"
                   alt="BiaoChenXuYing"
                 >
                 <img
@@ -90,7 +90,7 @@
           <router-link to="/">
             <img
               class="logo fl"
-              src="../assets/logo.jpg"
+              src="@/assets/logo.jpg"
               alt="BiaoChenXuYing"
             >
           </router-link>
