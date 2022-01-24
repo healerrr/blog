@@ -9,7 +9,7 @@
         >
           <img
             class="home-logo"
-            src="@/assets/userLogo.jpeg"
+            src="@/assets/logo.png"
             alt="biaochenxuying logo"
           />
         </router-link>

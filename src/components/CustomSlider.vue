@@ -2,7 +2,7 @@
   <div class="right slider">
     <img
       class="right-logo"
-      src="@/assets/userLogo.jpeg"
+      src="@/assets/logo.png"
       alt=""
     >
     <div class="title">夜尽天明</div>
@@ -36,7 +36,7 @@
       <div class="content">
         <img
           style="width:100%;"
-          src="@/assets/BiaoChenXuYing.png"
+          src="@/assets/logo.png"
           alt="全栈修炼"
         />
       </div>
@@ -46,7 +46,7 @@
       <div class="content">
         <img
           style="width:100%;"
-          src="@/assets/FrontEndGitHub.png"
+          src="@/assets/logo.png"
           alt="前端GitHub"
         />
       </div>

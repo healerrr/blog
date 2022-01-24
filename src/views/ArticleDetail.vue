@@ -12,7 +12,7 @@
             <div class="avatar">
               <img
                 class="auth-logo"
-                src="@/assets/userLogo.jpeg"
+                src="@/assets/logo.png"
                 alt="BiaoChenXuYing"
               >
             </div>
