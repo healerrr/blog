@@ -32,8 +32,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }} 
-          username: root
-          password: ZyX44vA_Q
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
           script: cd ~ && sh blog-deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
       # # 部署到阿里云
       # - name: Deploy to Aliyun
