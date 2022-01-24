@@ -5,6 +5,7 @@
             <h1 class="loginTitle">
                 <a href="#/">{{this.$store.state.themeObj.user_start!=0?"Aimee 的博客":"Qinlh 的博客"}}</a>
             </h1>
+            
             <!-- 登录注册 -->
             <div v-show="!err2005" class="">
                 <div v-if="login==1" class="loginBox">
