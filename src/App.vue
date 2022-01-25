@@ -8,7 +8,7 @@
 -->
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App4"/>
+  <HelloWorld msg="Welcome to Your Vue.js App5"/>
 </template>
 
 <script>
