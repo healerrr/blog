@@ -15,11 +15,11 @@ jobs:
         # 使用action库  actions/checkout获取源码
         uses: actions/checkout@master
       # 安装依赖
-      # - name: npm install
-      #   run: npm install
+      - name: yarn install
+        run: yarn install
       # 打包
-      - name: npm build
-        run: npm run build
+      - name: yarn build
+        run: yarn run build
 
       # 打包镜像推送到阿里云容器镜像服务
       - name: Build the Docker image  
