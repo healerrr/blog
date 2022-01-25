@@ -34,7 +34,7 @@ jobs:
           host: 47.97.8.179
           username: root
           password: bLneE@ZyX44vA_Q
-          # script: cd ~ && sh blog-deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+          script: cd ~ && sh blog-deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
       # # 部署到阿里云
       # - name: Deploy to Aliyun
       #   uses: easingthemes/ssh-deploy@v2.1.1
